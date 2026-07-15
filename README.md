@@ -15,7 +15,7 @@ Features:
     - Persistent storage using JSON files
     - Robust error handling
 
-Author : (Your Name)
+Author : (Srujana Sarakanam)
 Tech   : Python 3.x, json, csv, datetime, os
 ==============================================================
 """
