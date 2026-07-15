@@ -1,10 +1,7 @@
 # bharat-intern-python
-Python Development Internship Projects
-"""
-==============================================================
- LIBRARY MANAGEMENT SYSTEM
-==============================================================
-A console-based Library Management System built with Python.
+# Python DevelopmentpInternship
+# LIBRARY MANAGEMENT
+a console-based Library Management System built with Python.
 
 Features:
     - Book Management (Add / View / Search)
@@ -15,19 +12,14 @@ Features:
     - Persistent storage using JSON files
     - Robust error handling
 
-Author : (Srujana Sarakanam)
-Tech   : Python 3.x, json, csv, datetime, os
-==============================================================
-"""
-
+# Author : (Srujana Sarakanam)
+# Tech   : Python 3.x, json, csv, datetime, os
 import json
 import csv
 import os
 from datetime import datetime, date
 
-# --------------------------------------------------------------------------
 # CONFIGURATION
-# --------------------------------------------------------------------------
 DATA_DIR = "data"
 BOOKS_FILE = os.path.join(DATA_DIR, "books.json")
 MEMBERS_FILE = os.path.join(DATA_DIR, "members.json")
@@ -35,10 +27,8 @@ TRANSACTIONS_FILE = os.path.join(DATA_DIR, "transactions.json")
 
 DATE_FORMAT = "%Y-%m-%d"
 
-
-# --------------------------------------------------------------------------
 # UTILITY / FILE HANDLING FUNCTIONS
-# --------------------------------------------------------------------------
+
 def ensure_data_files():
     """Create the data directory and empty JSON data files if they don't exist."""
     os.makedirs(DATA_DIR, exist_ok=True)
@@ -106,10 +96,7 @@ def get_valid_choice(prompt, valid_choices):
             return choice
         print(f"[Input Error] Invalid choice. Please select one of {valid_choices}.")
 
-
-# --------------------------------------------------------------------------
 # BOOK MANAGEMENT
-# --------------------------------------------------------------------------
 class BookManager:
     def __init__(self):
         self.books = load_data(BOOKS_FILE)
@@ -179,11 +166,9 @@ class BookManager:
         for b in results:
             print(f"\nID: {b['book_id']} | Title: {b['title']} | Author: {b['author']} | "
                   f"Category: {b['category']} | Available: {b['available_copies']}/{b['total_copies']}")
-
-
-# --------------------------------------------------------------------------
+                  
 # MEMBER MANAGEMENT
-# --------------------------------------------------------------------------
+
 class MemberManager:
     def __init__(self):
         self.members = load_data(MEMBERS_FILE)
@@ -233,10 +218,7 @@ class MemberManager:
             print(f"{m['member_id']:<10}{m['name']:<20}{m['contact']:<15}"
                   f"{m['email']:<25}{m['join_date']:<12}{m['status']:<10}")
 
-
-# --------------------------------------------------------------------------
 # TRANSACTION MANAGEMENT (ISSUE / RETURN / HISTORY)
-# --------------------------------------------------------------------------
 class TransactionManager:
     def __init__(self, book_manager, member_manager):
         self.transactions = load_data(TRANSACTIONS_FILE)
@@ -337,10 +319,7 @@ class TransactionManager:
             print(f"{t['transaction_id']:<8}{t['book_title']:<20}{t['member_name']:<15}"
                   f"{t['issue_date']:<12}{(t['return_date'] or '-'):<12}{t['status']:<10}")
 
-
-# --------------------------------------------------------------------------
 # REPORTS
-# --------------------------------------------------------------------------
 class ReportManager:
     def __init__(self, book_manager, member_manager, transaction_manager):
         self.book_manager = book_manager
@@ -421,12 +400,9 @@ class ReportManager:
                 writer.writerow(["Pending Returns", len(transactions) - returned])
             print(f"[Success] Report exported to {report_path}")
         except OSError as e:
-            print(f"[File Error] Could not export report: {e}")
-
-
-# --------------------------------------------------------------------------
+            print(f"[File Error] Could not export report:{e}") 
 # MAIN MENU / APPLICATION LOOP
-# --------------------------------------------------------------------------
+
 def print_menu():
     print("\n==================================")
     print("   LIBRARY MANAGEMENT SYSTEM")
