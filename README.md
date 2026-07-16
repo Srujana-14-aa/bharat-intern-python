@@ -40,7 +40,7 @@ def ensure_data_files():
     ]:
         if not os.path.exists(file_path):
             try:
-                with open(file_path, "w") as f:
+               with open(file_path, "w", encoding="utf-8") as f:
                     json.dump(default, f, indent=4)
             except OSError as e:
                 print(f"[File Error] Could not create {file_path}: {e}")
@@ -49,7 +49,7 @@ def ensure_data_files():
 def load_data(file_path):
     """Load JSON data from a file, return [] on any error."""
     try:
-        with open(file_path, "r") as f:
+       with open(file_path, "r", encoding="utf-8") as f:
             return json.load(f)
     except FileNotFoundError:
         print(f"[File Error] {file_path} not found. Starting with empty data.")
@@ -65,7 +65,7 @@ def load_data(file_path):
 def save_data(file_path, data):
     """Save JSON data to a file with error handling."""
     try:
-        with open(file_path, "w") as f:
+       with open(file_path, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=4)
         return True
     except OSError as e:
@@ -373,7 +373,7 @@ class ReportManager:
     def _export_csv(self):
         report_path = os.path.join(DATA_DIR, "summary_report.csv")
         try:
-            with open(report_path, "w", newline="") as f:
+            with open(report_path, "w", newline="", encoding="utf-8") as f:
                 writer = csv.writer(f)
                 writer.writerow(["Report Generated On", date.today().strftime(DATE_FORMAT)])
                 writer.writerow([])
