@@ -1,5 +1,6 @@
 # bharat-intern-python
 # Python Development Internship 
+
 # LIBRARY MANAGEMENT
 a console-based Library Management System built with Python.
 
@@ -17,7 +18,7 @@ Features:
 import json
 import csv
 import os
-from datetime import datetime, date
+from datetime import date
 
 # CONFIGURATION
 DATA_DIR = "data"
