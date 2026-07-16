@@ -2,19 +2,20 @@
 # Python Development Internship 
 
 # LIBRARY MANAGEMENT
-a console-based Library Management System built with Python.
+# a console-based Library Management System built with Python.
 
-Features:
-    - Book Management (Add / View / Search)
-    - Member Management (Register / View)
-    - Issue & Return Books
-    - Borrowing History
-    - Reports (Book / Member / Transaction)
-    - Persistent storage using JSON files
-    - Robust error handling
+#Features:
+#- Book Management (Add / View / Search)
+#- Member Management (Register / View)
+#- Issue & Return Books
+#- Borrowing History
+#- Reports (Book / Member / Transaction)
+#- Persistent storage using JSON files
+#- Robust error handling
 
 # Author : (Srujana Sarakanam)
 # Tech   : Python 3.x, json, csv, os
+
 import json
 import csv
 import os
@@ -65,7 +66,7 @@ def load_data(file_path):
 def save_data(file_path, data):
     """Save JSON data to a file with error handling."""
     try:
-       with open(file_path, "w", encoding="utf-8") as f:
+        with open(file_path, "w", encoding="utf-8") as f:
             json.dump(data, f, indent=4)
         return True
     except OSError as e:
@@ -462,3 +463,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
