@@ -14,7 +14,7 @@ Features:
     - Robust error handling
 
 # Author : (Srujana Sarakanam)
-# Tech   : Python 3.x, json, csv, datetime, os
+# Tech   : Python 3.x, json, csv, os
 import json
 import csv
 import os
